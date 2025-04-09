@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+*.log
+*.html
+*.png
+*.pdf
+*.csv
+*.json
+node_modules/
+artifacts/
+venv/

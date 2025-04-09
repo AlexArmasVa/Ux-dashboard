@@ -1,0 +1,17 @@
+-Run this command from your project root to run project:
+
+docker-compose up --build
+
+-To keep the container running in the background, use:
+
+docker-compose up -d
+
+-You can still check logs with:
+
+docker-compose logs -f
+
+-Stop the container when needed:
+
+(ctrl+c)
+
+docker-compose down

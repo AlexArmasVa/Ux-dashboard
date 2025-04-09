@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  dashboard:
+    build: .
+    container_name: ux-dashboard
+    ports:
+      - "8501:8501"
+    volumes:
+      - .:/app
+    environment:
+      - PYTHONUNBUFFERED=1
+      - CHROME_BIN=/usr/bin/chromium
+    restart: always
