@@ -18,11 +18,22 @@ jobs:
       with:
         python-version: '3.10'
 
-    - name: ⚙️ Install Dependencies
+    - name: ⚙️ Install Python Dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: ✅ Run Analyzer Tests
+    - name: ✅ Run Analyzer Test
       run: |
-        echo "You can add tests or audits here!"
+        python analyze_ux.py artifacts/example_test
+
+    - name: 🐳 Docker Build & Push
+      run: |
+        docker build -t yourdockerhubusername/ux-dashboard:latest .
+        echo "${{ secrets.Billywiz666 }}" | docker login -u "${{ secrets.AlexArmasVa }}" --password-stdin
+        docker push yourdockerhubusername/ux-dashboard:latest
+      env:
+        DOCKER_CLI_EXPERIMENTAL: enabled
+
+    - name: 🚀 Deploy to Streamlit (placeholder)
+      run: echo "🔧 You can trigger Streamlit Cloud deploy here or use Heroku/Vercel/etc"
